@@ -5,8 +5,8 @@
   // These tasks can be run from CodeSandbox. Running one will open a log in the app.
   "tasks": {
     "cd rcore-frontend && npm start": {
-      "name": "cd rcore-frontend && npm start",
-      "command": "cd rcore-frontend && npm start",
+      "name": "startcommand",
+      "command": "cd rcore-frontend && npm install && npm start",
       "runAtStart": true
     }
   }
