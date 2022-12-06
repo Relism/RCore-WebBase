@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { createClient } from "@supabase/supabase-js";
-import { Auth } from "@supabase/auth-ui-react";
 import { useNavigate } from "react-router-dom";
+import Functions from "../components/Functions";
+import Navbar from "../components/Navbar";
 
 const supabase = createClient(
   "https://wzexnpmvncxoditytmcn.supabase.co/",
@@ -9,10 +10,16 @@ const supabase = createClient(
 );
 
 export default function Dashboard() {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({
+    user_metadata: {
+      full_name: "",
+      avatar_url: "",
+    },
+  });
   const navigate = useNavigate();
 
   useEffect(() => {
+    console.log("s");
     async function getUserData() {
       await supabase.auth.getUser().then((value) => {
         if (value.data?.user) {
@@ -30,18 +37,10 @@ export default function Dashboard() {
   }
   return (
     <div className="bg-grey font-main h-[100vh]">
-      <div className="flex items-center w-[50%]">
-        <h1 className="font-[500] text-slate-50 text-[3rem] pr-[50px] py-[50px]">
-          Hi, {user.user_metadata.full_name}
-        </h1>
-        <img className="rounded-full " src={user.user_metadata.avatar_url} />
-      </div>
-      <button
-        className="bg-accent border-none w-[30%] rounded-lg p-[10px] font-[600] text-gray-800 m-0"
-        onClick={() => signOutUser()}
-      >
-        Sign Out
-      </button>
+      <Navbar user={user} signOutUser={signOutUser} />
+      <section>
+        <Functions />
+      </section>
     </div>
   );
 }
