@@ -1,13 +1,13 @@
 .auth__input {
-    @apply bg-grey--light border-none w-[30%] rounded-lg py-[5px] px-[10px] ml-[330px]
+    @apply bg-gray-500 border-none w-[80%] rounded-lg py-[5px] px-[10px] ml-[35px] focus:text-slate-50 focus:outline-none
 }
 
 .auth__label {
-    @apply text-accent ml-[330px]
+    @apply text-accent ml-[35px]
 }
 
 .auth__btn {
-    @apply bg-accent border-none w-[30%] rounded-lg p-[10px] font-[600] text-gray-800 m-0 mx-auto
+    @apply bg-accent border-none w-[70%] rounded-lg p-[10px] font-[600] text-gray-800 m-0 mx-auto hover:bg-accent--dark
 }
 
 .auth__container {
@@ -15,5 +15,13 @@
 }
 
 .auth__anchor {
-    @apply text-slate-50
+    @apply text-slate-50 text-[15px]
+}
+
+.carousel__container button {
+    @apply hidden
+}
+
+.carousel__container span {
+    @apply hidden
 }
